@@ -1,0 +1,25 @@
+{
+  "name": "ezera-knowledge-platform",
+  "version": "1.0.0",
+  "description": "Interactive Enterprise Knowledge Platform styled after Ezera Tech",
+  "main": "server/src/server.js",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build": "npm install --prefix client && npm run build --prefix client && npm install --prefix server",
+    "start": "node server/src/server.js"
+  },
+  "keywords": [
+    "enterprise-knowledge",
+    "spatial-canvas",
+    "ezera-tech",
+    "architecture-blueprints"
+  ],
+  "author": "Mayank Tripathi",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Spatial Grid Pattern matching the UI reference screenshot */
+.spatial-grid-bg-light {
+  background-color: #FAFCFF;
+  background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.spatial-grid-bg-dark {
+  background-color: #0B0F17;
+  background-image: radial-gradient(#1E293B 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* 3D Tilt Card Effects */
+.card-perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, box-shadow 0.25s ease-out;
+}
+
+/* Custom Cursor Spotlight */
+.cursor-spotlight {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(90, 189, 178, 0.15) 0%, rgba(90, 189, 178, 0.05) 45%, rgba(0, 0, 0, 0) 70%);
+  z-index: 9999;
+  transition: transform 0.05s linear;
+}
+
+/* Bezier Spline Dash Flow Animation */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.spline-flow-active {
+  stroke-dasharray: 6 4;
+  animation: flowDash 1s linear infinite;
+}
+
+/* Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 189, 178, 0.6);
+}
