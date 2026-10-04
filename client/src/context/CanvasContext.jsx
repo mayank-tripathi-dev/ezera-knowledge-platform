@@ -149,11 +149,11 @@ export const CanvasProvider = ({ children }) => {
         setCards(res.cards);
       }
     } catch (err) {
-      // Fallback local arrange
+      // Fallback local arrange below header
       const cols = 3;
       const rearranged = cards.map((c, i) => ({
         ...c,
-        position: { x: 80 + (i % cols) * 380, y: 100 + Math.floor(i / cols) * 320 }
+        position: { x: 60 + (i % cols) * 400, y: 320 + Math.floor(i / cols) * 350 }
       }));
       setCards(rearranged);
     }

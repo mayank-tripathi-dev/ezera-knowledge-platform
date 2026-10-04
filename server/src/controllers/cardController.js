@@ -2,20 +2,57 @@ const Card = require('../models/Card');
 const { getMemoryStoreStatus } = require('../config/db');
 const { initialCards } = require('../utils/seedData');
 
-// In-memory cards store initialized with seed dataset
 let memoryCardsStore = [...initialCards];
+
+// Collision Detection & Overlap Resolution Engine
+const resolveOverlaps = (cardsList) => {
+  const minGapX = 380;
+  const minGapY = 320;
+  const headerSafeAreaY = 300; // Y area reserved for top header title overlay
+
+  return cardsList.map((card, index) => {
+    let posX = card.position.x;
+    let posY = card.position.y;
+
+    // Ensure card Y position stays below the canvas header title overlay if x is under 700
+    if (posX < 680 && posY < headerSafeAreaY) {
+      posY = headerSafeAreaY + 20;
+    }
+
+    // Check collision against all preceding cards
+    for (let i = 0; i < index; i++) {
+      const other = cardsList[i];
+      const dx = Math.abs(posX - other.position.x);
+      const dy = Math.abs(posY - other.position.y);
+
+      if (dx < minGapX && dy < minGapY) {
+        // Collision detected! Shift card to next column or row
+        posX = other.position.x + minGapX;
+        if (posX > 1200) {
+          posX = 60;
+          posY = other.position.y + minGapY;
+        }
+      }
+    }
+
+    return {
+      ...card,
+      position: { x: posX, y: posY }
+    };
+  });
+};
 
 exports.getAllCards = async (req, res) => {
   try {
     if (getMemoryStoreStatus()) {
-      return res.json(memoryCardsStore);
+      return res.json(resolveOverlaps(memoryCardsStore));
     }
     let cards = await Card.find({});
     if (!cards || cards.length === 0) {
       cards = await Card.insertMany(initialCards);
       memoryCardsStore = cards.map(c => c.toObject());
     }
-    res.json(cards);
+    res.json(resolveOverlaps(cards.map(c => c.toObject ? c.toObject() : c)));
   } catch (error) {
     console.error('Error fetching cards:', error);
     res.status(500).json({ message: 'Error retrieving architecture cards.' });
@@ -28,6 +65,16 @@ exports.createCard = async (req, res) => {
     
     const newNodeId = 'node-' + Date.now();
     const generatedCode = nodeCode || `ARCH // ${Math.floor(100 + Math.random() * 900)}`;
+
+    // Calculate non-overlapping initial position
+    const currentCards = getMemoryStoreStatus() ? memoryCardsStore : await Card.find({});
+    const nextCol = currentCards.length % 3;
+    const nextRow = Math.floor(currentCards.length / 3);
+    
+    const autoPosition = position || {
+      x: 60 + nextCol * 400,
+      y: 320 + nextRow * 350
+    };
 
     const newCardData = {
       nodeId: newNodeId,
@@ -44,7 +91,7 @@ exports.createCard = async (req, res) => {
       ],
       revision: `Rev: 1.00 • ${req.body.author || 'Architecture Team'}`,
       author: req.body.author || 'Enterprise Architect',
-      position: position || { x: 300 + Math.floor(Math.random() * 200), y: 150 + Math.floor(Math.random() * 150) },
+      position: autoPosition,
       dimensions: { width: 340, height: 280 },
       type: 'card',
       specifications: specifications || `# ${title}\n\nTechnical specification document for this architecture component.`
@@ -52,6 +99,7 @@ exports.createCard = async (req, res) => {
 
     if (getMemoryStoreStatus()) {
       memoryCardsStore.push(newCardData);
+      memoryCardsStore = resolveOverlaps(memoryCardsStore);
       return res.status(201).json(newCardData);
     }
 
@@ -124,12 +172,12 @@ exports.autoArrangeCards = async (req, res) => {
   try {
     const cards = getMemoryStoreStatus() ? memoryCardsStore : await Card.find({});
     
-    // Grid layout auto-arrange logic
+    // Non-overlapping Grid layout algorithm below canvas header
     const cols = 3;
-    const startX = 80;
-    const startY = 140;
-    const gapX = 520;
-    const gapY = 420;
+    const startX = 60;
+    const startY = 320;
+    const gapX = 400;
+    const gapY = 350;
 
     const rearranged = cards.map((card, index) => {
       const row = Math.floor(index / cols);

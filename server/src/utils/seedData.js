@@ -14,22 +14,13 @@ const initialCards = [
     ],
     revision: 'Rev: 2.14 • Dr. Aris Thorne',
     author: 'Dr. Aris Thorne',
-    position: { x: 60, y: 220 },
+    position: { x: 60, y: 320 },
     dimensions: { width: 340, height: 290 },
     type: 'card',
     specifications: `# Cloud Migration Core Topology (CLD-801)
 
 ## Architecture Overview
-This blueprint defines Brainwave's core multi-region hybrid cloud migration pattern designed for enterprise resilience and financial optimization.
-
-### Key Highlights
-- **Multi-Region Failover**: Automated active-passive failover with automated DNS health-checks under 5 seconds.
-- **Kubernetes Cluster Sync**: Cluster-API driven gitops deployment with ArgoCD.
-- **FinOps Telemetry**: Dynamic node scaling based on real-time traffic demand.
-
-### RFC Compliance
-- RFC-8802: Sovereign Data Residence Framework
-- RFC-9104: Multi-Cloud Network Interconnect Standard`
+This blueprint defines Brainwave's core multi-region hybrid cloud migration pattern designed for enterprise resilience and financial optimization.`
   },
   {
     nodeId: 'node-aigov-9',
@@ -46,18 +37,13 @@ This blueprint defines Brainwave's core multi-region hybrid cloud migration patt
     ],
     revision: 'Rev: 1.09 • Dr. K. Chen',
     author: 'Dr. K. Chen',
-    position: { x: 580, y: 380 },
+    position: { x: 460, y: 320 },
     dimensions: { width: 340, height: 290 },
     type: 'card',
     specifications: `# Autonomous AI Governance & ML Pipeline (AIGOV // 9)
 
 ## Overview
-Brainwave enterprise governance framework for machine learning lifecycles, model validation telemetry, and immutable audit logs.
-
-### Key Capabilities
-- **Algorithmic Alignment**: Continuous evaluation against safety benchmarks.
-- **Cryptographic Audit Trail**: Ledger-backed execution signatures for all model inferences.
-- **Data Mesh Integration**: Zero-trust data lineage tracing across enterprise pipelines.`
+Brainwave enterprise governance framework for machine learning lifecycles, model validation telemetry, and immutable audit logs.`
   },
   {
     nodeId: 'node-edge-r67',
@@ -74,7 +60,7 @@ Brainwave enterprise governance framework for machine learning lifecycles, model
     ],
     revision: 'Rev: 4.11 • S. Larsson',
     author: 'S. Larsson',
-    position: { x: 1100, y: 440 },
+    position: { x: 860, y: 320 },
     dimensions: { width: 340, height: 290 },
     type: 'card',
     specifications: `# Edge Compute Mesh & Resiliency Matrix (EDGE // R-67)
@@ -97,7 +83,7 @@ Ultra-low-latency edge computing fabric for real-time mission critical transacti
     ],
     revision: 'Rev: 3.02 • M. Vance',
     author: 'M. Vance',
-    position: { x: 1100, y: -80 },
+    position: { x: 460, y: 670 },
     dimensions: { width: 340, height: 280 },
     type: 'card',
     specifications: `# Omnichannel Data Fabric Engine (EVT-462)
@@ -120,7 +106,7 @@ Brainwave distributed event-driven architecture enabling sub-millisecond synchro
     ],
     revision: 'Rev: 5.10 • E. Rostova',
     author: 'E. Rostova',
-    position: { x: 580, y: -120 },
+    position: { x: 860, y: 670 },
     dimensions: { width: 340, height: 280 },
     type: 'card',
     specifications: `# Zero-Trust IAM & Micro-Segmentation (SEC // ZT-904)
