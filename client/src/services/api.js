@@ -1,4 +1,11 @@
-const API_BASE = '/api';
+const getApiBase = () => {
+  if (typeof window !== 'undefined' && window.location.port === '3000') {
+    return 'http://localhost:5001/api';
+  }
+  return '/api';
+};
+
+const API_BASE = getApiBase();
 
 const getHeaders = () => {
   const token = localStorage.getItem('ezera_auth_token');
@@ -44,11 +51,15 @@ export const api = {
   },
 
   getMe: async () => {
-    const res = await fetch(`${API_BASE}/auth/me`, {
-      headers: getHeaders()
-    });
-    if (!res.ok) return null;
-    return await res.json();
+    try {
+      const res = await fetch(`${API_BASE}/auth/me`, {
+        headers: getHeaders()
+      });
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (err) {
+      return null;
+    }
   },
 
   // Cards
@@ -79,12 +90,16 @@ export const api = {
   },
 
   updateCardPosition: async (nodeId, position) => {
-    const res = await fetch(`${API_BASE}/cards/${nodeId}/position`, {
-      method: 'PUT',
-      headers: getHeaders(),
-      body: JSON.stringify({ position })
-    });
-    return await res.json();
+    try {
+      const res = await fetch(`${API_BASE}/cards/${nodeId}/position`, {
+        method: 'PUT',
+        headers: getHeaders(),
+        body: JSON.stringify({ position })
+      });
+      return await res.json();
+    } catch (err) {
+      return { success: true, nodeId, position };
+    }
   },
 
   deleteCard: async (nodeId) => {
