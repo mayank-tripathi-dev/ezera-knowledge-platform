@@ -196,7 +196,7 @@ export const CardDetailDrawer = () => {
               </h4>
               <div className="p-4 bg-slate-900 text-slate-200 rounded-xl font-mono text-xs leading-relaxed overflow-x-auto border border-slate-800">
                 <pre className="whitespace-pre-wrap">
-                  {selectedCard.specifications || `# ${selectedCard.title}\n\nStandard Ezera Tech RFC Blueprint Architecture.`}
+                  {selectedCard.specifications || `# ${selectedCard.title}\n\nStandard Brainwave RFC Blueprint Architecture.`}
                 </pre>
               </div>
             </div>

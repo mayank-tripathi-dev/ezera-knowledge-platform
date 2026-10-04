@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     const saved = localStorage.getItem('ezera_user');
     return saved ? JSON.parse(saved) : {
       name: 'Dr. Aris Thorne',
-      email: 'architect@ezeratech.ae',
+      email: 'architect@brainwave.io',
       role: 'Architect',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150'
     };

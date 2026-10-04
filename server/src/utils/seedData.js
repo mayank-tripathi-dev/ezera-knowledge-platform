@@ -14,13 +14,13 @@ const initialCards = [
     ],
     revision: 'Rev: 2.14 • Dr. Aris Thorne',
     author: 'Dr. Aris Thorne',
-    position: { x: 80, y: 160 },
+    position: { x: 60, y: 220 },
     dimensions: { width: 340, height: 290 },
     type: 'card',
     specifications: `# Cloud Migration Core Topology (CLD-801)
 
 ## Architecture Overview
-This blueprint defines Ezera Tech's core multi-region hybrid cloud migration pattern designed for enterprise resilience and financial optimization.
+This blueprint defines Brainwave's core multi-region hybrid cloud migration pattern designed for enterprise resilience and financial optimization.
 
 ### Key Highlights
 - **Multi-Region Failover**: Automated active-passive failover with automated DNS health-checks under 5 seconds.
@@ -46,13 +46,13 @@ This blueprint defines Ezera Tech's core multi-region hybrid cloud migration pat
     ],
     revision: 'Rev: 1.09 • Dr. K. Chen',
     author: 'Dr. K. Chen',
-    position: { x: 450, y: 260 },
+    position: { x: 580, y: 380 },
     dimensions: { width: 340, height: 290 },
     type: 'card',
     specifications: `# Autonomous AI Governance & ML Pipeline (AIGOV // 9)
 
 ## Overview
-Enterprise governance framework for machine learning lifecycles, model validation telemetry, and immutable audit logs.
+Brainwave enterprise governance framework for machine learning lifecycles, model validation telemetry, and immutable audit logs.
 
 ### Key Capabilities
 - **Algorithmic Alignment**: Continuous evaluation against safety benchmarks.
@@ -74,18 +74,13 @@ Enterprise governance framework for machine learning lifecycles, model validatio
     ],
     revision: 'Rev: 4.11 • S. Larsson',
     author: 'S. Larsson',
-    position: { x: 820, y: 300 },
+    position: { x: 1100, y: 440 },
     dimensions: { width: 340, height: 290 },
     type: 'card',
     specifications: `# Edge Compute Mesh & Resiliency Matrix (EDGE // R-67)
 
 ## Overview
-Ultra-low-latency edge computing fabric for real-time mission critical transactions.
-
-### Key Metrics
-- Global Points of Presence (POPs): 48 Locations
-- Latency (RTT): < 0.8 ms localized response times
-- Active-Active Failover: Zero packet loss connection migration`
+Ultra-low-latency edge computing fabric for real-time mission critical transactions.`
   },
   {
     nodeId: 'node-evt-462',
@@ -102,13 +97,13 @@ Ultra-low-latency edge computing fabric for real-time mission critical transacti
     ],
     revision: 'Rev: 3.02 • M. Vance',
     author: 'M. Vance',
-    position: { x: 830, y: -20 },
+    position: { x: 1100, y: -80 },
     dimensions: { width: 340, height: 280 },
     type: 'card',
     specifications: `# Omnichannel Data Fabric Engine (EVT-462)
 
 ## Overview
-Distributed event-driven architecture enabling sub-millisecond synchronization across enterprise core databases.`
+Brainwave distributed event-driven architecture enabling sub-millisecond synchronization across enterprise core databases.`
   },
   {
     nodeId: 'node-sec-904',
@@ -125,7 +120,7 @@ Distributed event-driven architecture enabling sub-millisecond synchronization a
     ],
     revision: 'Rev: 5.10 • E. Rostova',
     author: 'E. Rostova',
-    position: { x: 440, y: -90 },
+    position: { x: 580, y: -120 },
     dimensions: { width: 340, height: 280 },
     type: 'card',
     specifications: `# Zero-Trust IAM & Micro-Segmentation (SEC // ZT-904)
@@ -174,7 +169,7 @@ const initialBoard = {
   boardId: 'global-hyper-mesh',
   name: 'Architecting Enterprise Digital Knowledge',
   topologyLayer: 'Layer: L3 - Global Hyper-Mesh',
-  subtitle: 'Spatial canvas for international technology consulting architecture, enterprise solution topology, and cloud governance frameworks.',
+  subtitle: 'Brainwave spatial canvas for international technology consulting architecture, enterprise solution topology, and cloud governance frameworks.',
   telemetryThreshold: 15,
   activeMeshFilters: {
     productionSplines: true,

@@ -30,7 +30,7 @@ app.use('/api/boards', require('./routes/boardRoutes'));
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'OK',
-    service: 'Ezera Tech Enterprise Knowledge Platform API',
+    service: 'Brainwave Enterprise Knowledge Platform API',
     version: '4.8.0',
     timestamp: new Date().toISOString()
   });

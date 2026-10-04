@@ -28,7 +28,7 @@ export const HeaderNav = () => {
 
   const exportArchitectureMatrix = () => {
     const exportData = {
-      platform: 'Ezera Tech Enterprise Knowledge Platform',
+      platform: 'Brainwave Enterprise Knowledge Platform',
       version: '4.8.0',
       exportedAt: new Date().toISOString(),
       nodesCount: cards.length,
@@ -39,7 +39,7 @@ export const HeaderNav = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `ezera-architecture-matrix-${Date.now()}.json`;
+    link.download = `brainwave-architecture-matrix-${Date.now()}.json`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -49,12 +49,12 @@ export const HeaderNav = () => {
       {/* Left Logo Section matching exact screenshot */}
       <div className="flex items-center space-x-3">
         <div className="w-9 h-9 rounded-lg bg-[#0B0F17] dark:bg-slate-900 border border-[#5ABDB2]/40 flex items-center justify-center shadow-sm">
-          <span className="font-serif font-bold text-xl text-[#5ABDB2]">E</span>
+          <span className="font-serif font-bold text-xl text-[#5ABDB2]">B</span>
         </div>
         <div>
           <div className="flex items-center space-x-2">
             <span className="font-serif font-bold text-lg leading-none tracking-tight text-slate-900 dark:text-white">
-              Ezera Tech
+              Brainwave
             </span>
             <span className="text-xs font-sans uppercase tracking-widest text-slate-500 dark:text-slate-400">
               Architecture

@@ -127,9 +127,9 @@ exports.autoArrangeCards = async (req, res) => {
     // Grid layout auto-arrange logic
     const cols = 3;
     const startX = 80;
-    const startY = 100;
-    const gapX = 380;
-    const gapY = 320;
+    const startY = 140;
+    const gapX = 520;
+    const gapY = 420;
 
     const rearranged = cards.map((card, index) => {
       const row = Math.floor(index / cols);

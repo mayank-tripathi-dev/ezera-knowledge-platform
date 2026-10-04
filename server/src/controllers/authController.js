@@ -3,14 +3,14 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const { getMemoryStoreStatus } = require('../config/db');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'ezera_tech_secret_key_2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'brainwave_secret_key_2026';
 
 // In-memory fallback user storage
 const memoryUsers = [
   {
     _id: 'user-architect-1',
     name: 'Dr. Aris Thorne',
-    email: 'architect@ezeratech.ae',
+    email: 'architect@brainwave.io',
     role: 'Architect',
     avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150',
     passwordHash: bcrypt.hashSync('architect123', 10)
@@ -18,7 +18,7 @@ const memoryUsers = [
   {
     _id: 'user-admin-1',
     name: 'Sarah Vance',
-    email: 'admin@ezeratech.ae',
+    email: 'admin@brainwave.io',
     role: 'Admin',
     avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150',
     passwordHash: bcrypt.hashSync('admin123', 10)
@@ -26,7 +26,7 @@ const memoryUsers = [
   {
     _id: 'user-client-1',
     name: 'Alex Rivera',
-    email: 'client@ezeratech.ae',
+    email: 'client@brainwave.io',
     role: 'Student/Client',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150',
     passwordHash: bcrypt.hashSync('client123', 10)
@@ -139,9 +139,9 @@ exports.demoLogin = async (req, res) => {
     const selectedRole = role || 'Architect';
 
     const demoProfiles = {
-      Architect: { name: 'Dr. Aris Thorne', email: 'architect@ezeratech.ae', role: 'Architect', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150' },
-      Admin: { name: 'Sarah Vance (Admin)', email: 'admin@ezeratech.ae', role: 'Admin', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150' },
-      'Student/Client': { name: 'Alex Rivera (Client)', email: 'client@ezeratech.ae', role: 'Student/Client', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150' }
+      Architect: { name: 'Dr. Aris Thorne', email: 'architect@brainwave.io', role: 'Architect', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150' },
+      Admin: { name: 'Sarah Vance (Admin)', email: 'admin@brainwave.io', role: 'Admin', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150' },
+      'Student/Client': { name: 'Alex Rivera (Client)', email: 'client@brainwave.io', role: 'Student/Client', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150' }
     };
 
     const target = demoProfiles[selectedRole] || demoProfiles['Architect'];
